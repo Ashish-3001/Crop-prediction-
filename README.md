@@ -1,6 +1,8 @@
 # Crop-prediction-
 In this project, we employ machine learning and statistical models to train and predict outcomes such as predicting crop yield based on climate variables, classifying the best adaptation strategy for each region, and estimating the economic impact of climate variability  on agricultural practices based on the cleaned dataset.
 
+### Link to the application : [Open](https://web-production-730e.up.railway.app/)
+
 ### This Project Setup Guide
 
 This guide will help you set up and run the Django project on your local machine.
@@ -40,21 +42,14 @@ Install the required packages listed in `requirements.txt`.
 pip install -r requirements.txt
 ```
 
-Step 4: Apply Migrations
-Run the following command to apply migrations to set up the database schema.
-
-```bash
-python manage.py migrate
-```
-
-Step 5: Run the Development Server
+Step 4: Run the Development Server
 Start the Django development server.
 
 ```bash
 python manage.py runserver
 ```
 
-Step 6: Access the Application
+Step 5: Access the Application
 Once the server is running, open your browser and go to:
 ```
 http://127.0.0.1:8000/

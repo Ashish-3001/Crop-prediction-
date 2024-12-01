@@ -1,1 +1,1 @@
-web: gunicorn crop_yield_predictor.wsgi:application
+web: gunicorn --timeout 120 crop_yield_predictor.wsgi:application
