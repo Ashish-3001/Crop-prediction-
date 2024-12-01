@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import predict_view,Home, predict_view_1, predict_view_2, predict_view_3, predict_view_4
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', Home, name='home'),
@@ -9,4 +11,4 @@ urlpatterns = [
     path('model3/', predict_view_2, name='predict2'),
     path('model4/', predict_view_3, name='predict3'),
     path('model5/', predict_view_4, name='predict4'),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
