@@ -134,9 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 
 # Directories where Django will search for additional static files (e.g., CSS, JS)
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'statics'),  # Ensure this directory exists and contains your static files
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Directory where collectstatic will gather static files for deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
