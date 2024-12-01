@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'predictions/predict.css/' %}">
+    <script src="{% static 'predictions/script.js' %}" defer></script>
+    <title>LSTM Climate Impact Prediction</title>
+</head>
+<body>
+    <header>
+        <h1 id="title">Crop Predictor</h1>
+        <h2 id="title1"> Climate Impact Prediction Using LSTM</h2>
+    </header>
+    <main>
+        <!-- Left Section: Form and Prediction -->
+        <section id="form-section">
+            <h2>Form</h2>
+            
+            <form method="POST" >
+                {% csrf_token %}
+                {{ form.as_p }} <!-- Automatically render the form fields -->
+                <button type="submit">Predict</button>
+            </form>
+
+            {% if result %}
+            <div class="result">
+                <h3>Outcome of Prediction</h3>
+                <p>{{ prediction }}</p>
+            </div>
+            {% endif %}
+        </section>
+    
+        <!-- Right Half: Model Description and Graph -->
+        <div id="right-section">
+            <!-- Model Description (30%) -->
+            <div id="model-description">
+                <h2>Description about the Model</h2>
+                <p>This model predicts economic impact, yield, or other agricultural insights using cutting-edge algorithms.</p>
+            </div>
+    
+            <!-- Graph Section (70%) -->
+            <div id="graph-container" class="graph">
+                <!-- Tabs for Graph Selection -->
+                <div class="tabs">
+                    <div class="tab active" data-tab="tab1">Graph 1</div>
+                    <div class="tab" data-tab="tab2">Graph 2</div>
+                    <div class="tab" data-tab="tab3">Graph 3</div>
+                    <div class="tab" data-tab="tab4">Graph 4</div>
+                    <div class="tab" data-tab="tab5">Graph 5</div>
+                </div>
+
+                <!-- Graph Display Section -->
+                <div id="graph-content">
+                    <!-- Default Graph (Tab 1) -->
+                    <div class="graph active" id="tab1">
+                        <img src="{% static visualizations.Boxplot_of_Total_Climate_Impact_by_Crop_Rotation_Adaptation_Strategy %}" alt="Graph 1">
+                    </div>
+                    <!-- Hidden Graphs (Tab 2 and Tab 3) -->
+                    <div class="graph" id="tab2" style="display: none;">
+                        <img src="{% static visualizations.Distribution_of_Extreme_Weather_Events %}" alt="Graph 2">
+                    </div>
+                    <div class="graph" id="tab3" style="display: none;">
+                        <img src="{% static visualizations.Distribution_of_Total_Climate_Impact %}" alt="Graph 3">
+                    </div>
+                    <div class="graph" id="tab4" style="display: none;">
+                        <img src="{% static visualizations.Correlation_Heatmap %}" alt="Graph 4">
+                    </div>
+                    <div class="graph" id="tab5" style="display: none;">
+                        <img src="{% static visualizations.Violinplot_of_Total_Climate_Impact_by_Region %}" alt="Graph 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
