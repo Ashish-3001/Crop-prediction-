@@ -182,6 +182,8 @@ def predict_view_3(request):
         else:
             prediction = f"Predicted Total Climate Impact: {custom_prediction:.2f}. No impact!"
     
+    print(prediction)
+    
     return render(request, 'predict_form.html', {'form': form, 'prediction': prediction, 'visualizations': visualizations4})
 
 def predict_view_4(request):
@@ -258,5 +260,7 @@ def predict_view_4(request):
             prediction = f"{custom_prediction:.2f}% dip in temperature"
         else:
             prediction = "No significant impact"
-
+        print(prediction)
+    else:
+        print("form invalid")
     return render(request, 'predict_lstm_form.html', {'form': form, 'prediction': prediction, 'visualizations': visualizations5})
