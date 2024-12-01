@@ -1,1 +1,1 @@
-web: gunicorn crop_yield_predictor.wsgi 
+web: gunicorn crop_yield_predictor.wsgi:application
